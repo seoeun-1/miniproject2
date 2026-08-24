@@ -57,7 +57,7 @@ CREATE TABLE management (
     mno         INT AUTO_INCREMENT,   -- 유통 식별 번호
     mdate       DATE NOT NULL,        -- 유통기한
     pno         INT NOT NULL,         -- 개별 상품 번호(FK)
-    mstatus     VARCHAR(30) NOT NULL, -- 상태
+    mstatus     VARCHAR(30) NOT NULL CHECK (mstatus IN ('판매중/입고', '판매', '폐기')), -- 상태
     in_date     DATE NOT NULL,        -- 등록날짜(입고날짜)
     out_date    DATE,                 -- 판매날짜(폐기날짜)
 
@@ -68,8 +68,6 @@ CREATE TABLE management (
         REFERENCES product(pno)
 
 );
-
-
 
 -- =========================================================
 --                      임의의 데이터
