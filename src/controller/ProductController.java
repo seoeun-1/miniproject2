@@ -35,7 +35,8 @@ public class ProductController {
 
     // [4] D
     public boolean pdelete(int pno){
-        int result = pd.pdelete(pno);
+        boolean result = pd.pdelete(pno);
+        return result;
     }
 
 }
