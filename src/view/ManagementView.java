@@ -25,23 +25,26 @@ public class ManagementView {
     
 
         public void InventorySalesMenu(){
-
-            ConsoleLayout.header();
-            ConsoleLayout.blank();
-            ConsoleLayout.line(" 1.입고 ");
-            ConsoleLayout.line(" 2.재고 수정 ");
-            ConsoleLayout.line(" 3.재고 삭제 ");
-            ConsoleLayout.line(" 4.판매 여부 조정 ");
-
-            ConsoleLayout.line(" 0.뒤로 가기 ");
-
-            System.out.println();
-            ConsoleLayout.blank();
-            ConsoleLayout.footer();
-            
-            System.out.println("번호 입력 > ");
-            int ch = scan.nextInt();
             for(;;){
+                
+                ConsoleLayout.header();
+                ConsoleLayout.blank();
+                ConsoleLayout.line(" 1.입고 ");
+                ConsoleLayout.line(" 2.재고 수정 ");
+                ConsoleLayout.line(" 3.재고 삭제 ");
+                ConsoleLayout.line(" 4.판매 여부 조정 ");
+
+                ConsoleLayout.line(" 0.뒤로 가기 ");
+
+                System.out.println();
+                ConsoleLayout.blank();
+                ConsoleLayout.footer();
+            
+            
+            
+                System.out.println("번호 입력 > ");
+                int ch = scan.nextInt();
+                
                 if(ch==1){
                     msave();
                     
@@ -51,7 +54,7 @@ public class ManagementView {
 
                     
                 }else if(ch==3){
-                    
+                    mdelete();
 
                 }else if(ch==4){
 
@@ -65,7 +68,7 @@ public class ManagementView {
         }
 
     public void msave(){
-        while (true) {
+        
                 try {
                 int pno = 0;
                 System.out.println("추가할 상품 번호를 입력하세요: ");
@@ -81,20 +84,17 @@ public class ManagementView {
                     System.out.println("[안내] 재고 등록 실패");
                 }
 
-                break;
-
                 } catch (InputMismatchException e) {
                     System.out.println("숫자로 입력하세요");
                         scan.nextLine();
                 } catch (Exception e){
                     System.out.println(e);
                 }
-            }
             
     }
 
-    public boolean mupdate(){
-        while (true) {
+    public void mupdate(){
+        
             try {
                 System.out.println("변경할 재고 번호 입력: ");  int mno = scan.nextInt();
                 System.out.println("유통기한 변경 ex(20260820)"); String mdate = scan.next();
@@ -119,7 +119,11 @@ public class ManagementView {
                 
                 boolean result = mc.mupdate(managementDto);
 
-                return result;
+                if(result){
+                    System.out.println("[안내] 재고가 성공적으로 변경 되었습니다");
+                }else{
+                    System.out.println("[안내] 재고 변경 실패");
+                }
 
             } catch (InputMismatchException e) {
                 System.out.println("숫자를 입력하세요: ");
@@ -130,28 +134,28 @@ public class ManagementView {
             } catch (Exception e){
                 System.out.println(e);
             }
-        }
+        
                     
     }
 
-    public boolean mdelete(){
+    public void mdelete(){
         boolean result;
-            while (true) {
-
-                try {
-                    System.out.println("삭제할 재고번호를 입력하세요: "); int mno = scan.nextInt();
-                    result = mc.mdelete(mno);
-
-                    break;
-                } catch (InputMismatchException e) {
-                    System.out.println("올바른 입력을 하세요: ");
-                    scan.nextLine();
-
-                }
-                
-            }
             
-            return result;
+        try {
+            System.out.println("삭제할 재고번호를 입력하세요: "); int mno = scan.nextInt();
+            result = mc.mdelete(mno);
+            if(result){
+                System.out.println("[안내] 재고가 성공적으로 삭제 되었습니다");
+            }else{
+                System.out.println("[안내] 재고 삭제 실패");
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println("올바른 입력을 하세요: ");
+            scan.nextLine();
+
+        }
+            
     }
     
 
