@@ -1,3 +1,4 @@
+/* 
 package view;
 
 import java.util.Scanner;
@@ -15,3 +16,4 @@ public class CategoryView {CategoryController cc = CategoryController.getInstanc
     }
 
 }
+*/
