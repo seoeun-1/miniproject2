@@ -13,5 +13,5 @@ public class ManagementController {
     //[*] MVC패턴 흐름의 dao 싱글톤 호출
     private ManagementDao bd = ManagementDao.getInstance();
 
-
+    
 }
