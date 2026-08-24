@@ -1,3 +1,4 @@
+/* 
 package controller;
 
 import java.util.Scanner;
@@ -19,3 +20,5 @@ public class CategoryController {
     public boolean cateInsert(String 카테고리){boolean result = cateInsert()}
     
 }
+
+*/
