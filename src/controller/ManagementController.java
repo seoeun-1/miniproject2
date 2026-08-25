@@ -42,5 +42,8 @@ public class ManagementController {
     public List<InventoryDto> inventory(){
         return md.inventory();
     }
-    
+
+    public List<DeadlineDiscountDto> deadlinediscount(){
+        return md.Deadlinediscount();
+    }
 }
