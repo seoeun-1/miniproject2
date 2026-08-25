@@ -110,7 +110,7 @@ public class ProductDao extends IBaseDao {
         } catch(SQLException e){System.out.println("상품 삭제 오류" + e);}
 
         return false;
-    }
+    } // pdelete
 
 
 }
