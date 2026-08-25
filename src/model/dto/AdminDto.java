@@ -87,9 +87,9 @@ public class AdminDto {
 
     @Override
     public String toString() {
-        return "ManagementDto ["+ "mno=" + mno + ", pno=" + pno + ", mstatus=" + mstatus
+        return "AdminDto ["+ "mno=" + mno + ", pno=" + pno + ", mstatus=" + mstatus
                                 + ", inDate=" + inDate + ", outDate=" + outDate + ", pname=" + pname
-                                + ", saleCount=" + outCount+ "]";
+                                + ", outCount=" + outCount+ "]";
     }
 }
 

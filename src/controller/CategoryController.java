@@ -1,3 +1,4 @@
+/* 
 package controller;
 
 import java.util.ArrayList;
@@ -18,3 +19,4 @@ public class CategoryController {
     public boolean cateInsert(String 카테고리){boolean result = cd.cateInsert()}
     
 }
+*/
