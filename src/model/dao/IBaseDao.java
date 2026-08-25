@@ -8,7 +8,7 @@ public class IBaseDao {
     //1. 연동 정보
     private String url = "jdbc:mysql://127.0.0.1:3306/foodmanager";
     private String user = "root";
-    private String password = "1234";
+    private String password = "1324";
 
     //2.연동 인터페이스 , protected 상속 관계이면 다른 패키지도 접근 허용
     protected Connection conn;
@@ -21,6 +21,8 @@ public class IBaseDao {
             conn = DriverManager.getConnection(url,user,password);
         } catch (Exception e) {
             System.out.println("DB연동실패" + e);
+            e.printStackTrace();
+            
         }
         
     }
