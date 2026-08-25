@@ -3,6 +3,7 @@ package controller;
 import java.util.List;
 
 import model.dao.ManagementDao;
+import model.dto.InventoryDto;
 import model.dto.ManagementDto;
 import model.dto.ProductManagementDto;
 
@@ -38,5 +39,8 @@ public class ManagementController {
         
     }
 
+    public List<InventoryDto> inventory(){
+        return md.inventory();
+    }
     
 }

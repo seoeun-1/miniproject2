@@ -96,6 +96,7 @@ public class ProductDao extends IBaseDao {
         return false;
     } // pupdate( ) end
 
+
     // [4] D 상품 삭제
     public boolean pdelete(int pno){
         try{

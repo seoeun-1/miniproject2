@@ -69,6 +69,7 @@ CREATE TABLE management (
 
 );
 
+SELECT pname, COUNT(pname) AS Inventory FROM management mm JOIN product pd ON mm.pno = pd.pno WHERE mstatus = "판매중/입고" GROUP BY pname;
 -- =========================================================
 --                      임의의 데이터
 -- =========================================================
