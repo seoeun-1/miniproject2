@@ -1,17 +1,50 @@
 package view;
 
+import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import controller.CategoryController;
+import model.dto.CategoryDto;
 
-public class CategoryView {CategoryController cc = CategoryController.getInstance();
-     // [1] 등록 VIEW
-    public void cateInsert( ){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("카테고리명: ");     String 카테고리 = scan.next();  // 1.1 저장할 자료 입력받기 
-        boolean result = cc.cateInsert( 카테고리 ); // 1.3 컨트롤러 에게 전달(dto) 하여 응답(boolean) 받기 
-        if( result ){ System.out.println(">등록 성공");} // 1.4 응답받은 결과로 출력
-        else{ System.out.println(">등록 실패"); }
+public class CategoryView {
+    // [*] 싱글톤 패턴
+    private CategoryView(){}
+    private static final CategoryView instance = new CategoryView();
+    public static CategoryView getInstance(){ return instance; }
+
+    // [*] Controller 싱글톤 및 Scanner
+    private CategoryController cc = CategoryController.getInstance();
+    private Scanner scan = new Scanner(System.in);
+
+    // [*] 카테고리 화면 실행
+    public void run(){
+        while(true){
+            try {
+                System.out.println("\n--- 카테고리 메뉴 ---");
+                System.out.print("1.카테고리 전체조회 0.이전으로 선택: ");
+                int ch = scan.nextInt();
+
+                if(ch == 1){ 
+                    findAll(); 
+                } else if(ch == 0){ 
+                    System.out.println("> 이전 메뉴로 돌아갑니다.");
+                    break; 
+                }
+            } catch(InputMismatchException e){
+                scan = new Scanner(System.in);
+                System.out.println("[다시입력] " + e);
+            }
+        }
     }
 
+    // [1] 카테고리 전체조회 VIEW
+    public void findAll(){
+        ArrayList<CategoryDto> result = cc.findAll();
+        System.out.println("\n=============== 카테고리 목록 ===============");
+        for(CategoryDto dto : result){
+            System.out.println(dto.getCno() + " / " + dto.getCname());
+        }
+        System.out.println("===========================================");
+    }
 }
