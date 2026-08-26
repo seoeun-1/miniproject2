@@ -100,11 +100,13 @@ public static void clearConsole() {
 
         System.out.println("콘솔 명령어를 실행할 수 없습니다.");
 
-    } catch (InterruptedException e) {    // wairfor : 기다리다가 방해 받을시 
+    } catch (InterruptedException e) {    
+    // waitFor  : 기다리고 있는 java 스레드가 중간에 interrupt(중단된)를 당할 수 있기 떄문에 예외처리를 해야함.
 
         System.out.println("콘솔 명령어 실행 도중 대기가 중단되었습니다.");
 
-        Thread.currentThread().interrupt();
+        Thread.currentThread().interrupt();  // interrupt 상태 = true 로 
+        //  현재 이 코드를 실행하고 있는 스레드 객체를 가져와서 interrupt 상태 표시
     }catch(Exception e){ System.out.println( e );}
 }
 
