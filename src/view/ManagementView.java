@@ -7,6 +7,7 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import controller.ManagementController;
@@ -24,7 +25,7 @@ public class ManagementView {
     // [*] MVC패턴 흐름의 controller 싱글톤 호출
     private ManagementController mc = ManagementController.getInstance();
     
-        // 2번
+        //관리자 메뉴 2번
         public void InventorySalesMenu(){
             for(;;){
                 ConsoleLayout.header();
@@ -57,7 +58,7 @@ public class ManagementView {
             }
         }
 
-        // 3번
+        // 관리자 메뉴 3번
         public void InventoryMenu(){
             for(;;){
 
@@ -66,7 +67,7 @@ public class ManagementView {
                 ConsoleLayout.line(" 1.총 재고조회 ");
                 ConsoleLayout.line(" 2.재고 수량 ");
                 ConsoleLayout.line(" 3.발주 필요 상품 ");
-                ConsoleLayout.line(" 4.판매 ");
+                ConsoleLayout.line(" 4.폐기할 상품 조회");
 
                 ConsoleLayout.line(" 0.뒤로 가기 ");
 
@@ -87,15 +88,14 @@ public class ManagementView {
                 }else if(ch==3){
                     orderneed();
                 }else if(ch==4){
-
+                    deadlineProduct();
                 }else if(ch==0){
 
                 }
             }
         }
 
-        
-
+        //저장 기능
         public void msave(){
             
             try {
@@ -122,6 +122,7 @@ public class ManagementView {
                 
         }
 
+        //수정 기능
         public void mupdate(){
             
             try {
@@ -167,6 +168,7 @@ public class ManagementView {
                         
         }
 
+        //삭제 기능
         public void mdelete(){
             boolean result;
                 
@@ -187,6 +189,7 @@ public class ManagementView {
                 
         }
         
+        // 모든 재고 조회
     public void mfind() {
         List<ManagementDto> result = mc.mfind();
 
@@ -211,6 +214,7 @@ public class ManagementView {
         }
     }
 
+    //상품명별 재고량 조회 기능
     public void inventory(){
         List<InventoryDto> result = mc.inventory();
 
@@ -232,6 +236,7 @@ public class ManagementView {
         }
     }
 
+    // 발주필요상품조회 기능
     public void orderneed(){
         List<InventoryDto> result = mc.inventory();
         System.out.println(
@@ -252,5 +257,22 @@ public class ManagementView {
             
         }
     }
+
+    //폐기할 상품 조회
+    public void deadlineProduct(){
+        List<Map<String,Object>> result = mc.MPJfind();
+        System.out.println(
+            "------폐기 할 상품------");
+        System.out.println(
+            "식별번호   | 상품명   |  유통기한" );
+        System.out.println(
+            "-----------------------------");
+            for(Map<String,Object> i : result){
+                System.out.print(i.get("mno"));
+                System.out.print(i.get("pname"));
+                System.out.println(i.get("mdate"));
+            }
+    }
+
 
 } //class end
