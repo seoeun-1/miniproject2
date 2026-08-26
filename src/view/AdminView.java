@@ -19,12 +19,11 @@ public class AdminView {
 
     public void amenu() {
         while (true) {
-            System.out.println("┌──────────────────────── 입·출고 및 판매 이력 조회 ────────────────────────┐");
-            System.out.println("│                                                                         │");
-            System.out.println("│   1. 상품별 입고 이력 조회       │   2. 상품별 판매 이력 조회             │");
-            System.out.println("│   3. 날짜별 입고·판매 내역 조회  │   4. 뒤로가기                          │");
-            System.out.println("│                                                                         │");
-            System.out.println("└─────────────────────────────────────────────────────────────────────────┘");
+            System.out.println("┌──────────────────────── 입·출고 및 판매 이력 조회 ───────────────────────────┐");
+            System.out.println("│                                                                             │");
+            System.out.println("│   1. 상품별 입고 이력 조회   │   2. 상품별 판매 이력 조회   │   3. 뒤로 가기   │");
+            System.out.println("│                                                                             │");
+            System.out.println("└─────────────────────────────────────────────────────────────────────────────┘");
 
             System.out.print("메뉴 선택 : ");
             int ch = scan.nextInt();
@@ -36,9 +35,6 @@ public class AdminView {
                 findAllOut();
             }
             else if (ch == 3) {
-                findAllDate();
-            }
-            else if (ch == 4) {
                 return;
             }
         }
@@ -102,7 +98,7 @@ public class AdminView {
             );
         }
     }
-
+    /* 
     // [3] 날짜별 입고·판매 내역 조회
     public void findAllDate() {
         System.out.println("========== 날짜별 입고·판매 내역 조회 ==========");
@@ -132,5 +128,5 @@ public class AdminView {
             );
         }
     }
-
+    */
 }

@@ -89,7 +89,7 @@ public class AdminDao extends IBaseDao {
 
         return list;
     }
-
+    /* 
     // [3] 날짜별 입고·판매 내역 조회
     public ArrayList<AdminDto> findAllDate(String date) {
 
@@ -129,5 +129,5 @@ public class AdminDao extends IBaseDao {
 
         return list;
     }
-
+    */
 }
