@@ -91,7 +91,7 @@ public class SaleDto {
         return pprice;
     }
     public void setPprice(int pprice) {
-        if(this.mdate != null){
+        
                 LocalDate now = LocalDate.now();
                 String strDate = mdate.toString();
                 String strNow = now.toString();
@@ -116,7 +116,7 @@ public class SaleDto {
                     this.pprice = (int)aaa;  // 형변환
                 }
                 else this.pprice = pprice;
-        }else this.pprice = pprice;
+        
     }
     public String getCname() {
         return cname;
