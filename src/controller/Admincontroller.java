@@ -22,9 +22,4 @@ public class AdminController {
     public ArrayList<AdminDto> findAllOut(int pno) {
         return ad.findAllOut(pno);
     }
-
-    // [3] 날짜별 입고·판매 내역 조회
-    public ArrayList<AdminDto> findAllDate(String date) {
-        return ad.findAllDate(date);
-    }
 }
