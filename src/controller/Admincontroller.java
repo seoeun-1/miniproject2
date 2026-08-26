@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import model.dto.AdminDto;
 import model.dao.AdminDao;
 
-public class AdminController {
-    private AdminController(){}
-    private static final AdminController instance = new AdminController();
-    public static AdminController getInstance(){
+public class Admincontroller {
+    private Admincontroller(){}
+    private static final Admincontroller instance = new Admincontroller();
+    public static Admincontroller getInstance(){
         return instance;
     }
 

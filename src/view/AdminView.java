@@ -2,7 +2,7 @@ package view;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import controller.AdminController;
+import controller.Admincontroller;
 import model.dto.AdminDto;
 
 public class AdminView {
@@ -14,7 +14,7 @@ public class AdminView {
         return instance;
     }
 
-    private AdminController ac = AdminController.getInstance();
+    private Admincontroller ac = Admincontroller.getInstance();
     Scanner scan = new Scanner(System.in);
 
     public void amenu() {
