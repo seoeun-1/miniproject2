@@ -89,45 +89,4 @@ public class AdminDao extends IBaseDao {
 
         return list;
     }
-    /* 
-    // [3] 날짜별 입고·판매 내역 조회
-    public ArrayList<AdminDto> findAllDate(String date) {
-
-        ArrayList<AdminDto> list = new ArrayList<>();
-
-        try {
-            String sql =
-                    "SELECT mstatus, pname, in_date, out_date "
-                    + "FROM management "
-                    + "JOIN product ON management.pno = product.pno "
-                    + "WHERE in_date = ? "
-                    + "OR out_date = ? "
-                    + "ORDER BY mno";
-
-            PreparedStatement ps = conn.prepareStatement(sql);
-
-            ps.setString(1, date);
-            ps.setString(2, date);
-
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-
-                AdminDto admindto = new AdminDto();
-
-                admindto.setMstatus(rs.getString("mstatus"));
-                admindto.setPname(rs.getString("pname"));
-                admindto.setInDate(rs.getString("in_date"));
-                admindto.setOutDate(rs.getString("out_date"));
-
-                list.add(admindto);
-            }
-
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-
-        return list;
-    }
-    */
 }
