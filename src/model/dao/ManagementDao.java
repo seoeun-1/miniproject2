@@ -141,28 +141,28 @@ public class ManagementDao extends IBaseDao{
         return list;
     }
 
-    public List<DeadlineDiscountDto> deadlinediscount(){
-        List<DeadlineDiscountDto> list = new ArrayList<>();
-        try {
+    // public List<DeadlineDiscountDto> deadlinediscount(){
+    //     List<DeadlineDiscountDto> list = new ArrayList<>();
+    //     try {
 
-            String url ="SELECT pd.pname, COUNT(*) AS inventory " +"FROM management mm " + "JOIN product pd ON mm.pno = pd.pno " +"WHERE mm.mstatus = '판매중/입고' " + "GROUP BY pd.pname";
-            PreparedStatement ps = conn.prepareStatement(url);
-            ResultSet rs = ps.executeQuery();
+    //         String url ="SELECT pd.pname, COUNT(*) AS inventory " +"FROM management mm " + "JOIN product pd ON mm.pno = pd.pno " +"WHERE mm.mstatus = '판매중/입고' " + "GROUP BY pd.pname";
+    //         PreparedStatement ps = conn.prepareStatement(url);
+    //         ResultSet rs = ps.executeQuery();
 
             
             
-            while (rs.next()) { // rs.next() :다음 레코드로 이동, 마지막 레코드까지 반복
-                InventoryDto id = new InventoryDto();
-                id.setPname(rs.getString("pname"));
-                id.setInventory(rs.getInt("inventory"));
+    //         while (rs.next()) { // rs.next() :다음 레코드로 이동, 마지막 레코드까지 반복
+    //             InventoryDto id = new InventoryDto();
+    //             id.setPname(rs.getString("pname"));
+    //             id.setInventory(rs.getInt("inventory"));
                 
-                list.add(id);
-            }
+    //             list.add(id);
+    //         }
 
-        } catch (SQLException e) {
-            System.out.println("inventory 오류");
-        }
+    //     } catch (SQLException e) {
+    //         System.out.println("inventory 오류");
+    //     }
         
-        return list;
-    }
+    //     return list;
+    // }
 }

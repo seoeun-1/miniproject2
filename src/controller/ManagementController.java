@@ -1,9 +1,15 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
+import model.dao.ManageProdJoinDao;
 import model.dao.ManagementDao;
 import model.dto.InventoryDto;
+import model.dto.ManageProdJoinDto;
 import model.dto.ManagementDto;
 import model.dto.ProductManagementDto;
 
@@ -18,6 +24,7 @@ public class ManagementController {
     //[*] MVC패턴 흐름의 dao 싱글톤 호출
     private ManagementDao md = ManagementDao.getInstance();
 
+    private ManageProdJoinDao mpd = ManageProdJoinDao.getInstance();
 
 
     public boolean msave(int pno){
@@ -43,7 +50,19 @@ public class ManagementController {
         return md.inventory();
     }
 
-    public List<DeadlineDiscountDto> deadlinediscount(){
-        return md.Deadlinediscount();
+    public List<Map<String,Object>> MPJfind(){
+        List<Map<String,Object>> list = new ArrayList<>();
+        List<ManageProdJoinDto> MPJDTO = mpd.MPJfind();
+        Map<String,Object> maplist = new HashMap();
+        for(ManageProdJoinDto i : MPJDTO){
+            maplist.put("mno", i.getMno());
+            maplist.put("pname", i.getPname());
+            maplist.put("mdate", i.getMdate());
+            list.add(maplist);
+        }
+        return list;
     }
+    // public List<DeadlineDiscountDto> deadlinediscount(){
+    //     return md.Deadlinediscount();
+    // }
 }
