@@ -63,4 +63,25 @@ public class ManageProdJoinDao extends IBaseDao {
 
         return list;
     }
+
+
+    public boolean deadlineProductUpdate(int mno,String mstatus){
+        try {
+            String sql = "UPDATE management SET mstatus = ? WHERE mno = ?";
+            
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, mstatus);
+            ps.setInt(2, mno);
+
+            int result = ps.executeUpdate();
+
+            if (result==1) {
+                return true;
+            }
+        } catch (SQLException e) {
+
+            System.out.println(e);
+        }
+        return false;
+    }
 }

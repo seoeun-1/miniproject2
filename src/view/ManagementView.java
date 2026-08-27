@@ -67,7 +67,7 @@ public class ManagementView {
                 ConsoleLayout.line(" 1.총 재고조회 ");
                 ConsoleLayout.line(" 2.재고 수량 ");
                 ConsoleLayout.line(" 3.발주 필요 상품 ");
-                ConsoleLayout.line(" 4.폐기할 상품 조회");
+                ConsoleLayout.line(" 4.폐기할 상품 조회/폐기");
 
                 ConsoleLayout.line(" 0.뒤로 가기 ");
 
@@ -88,7 +88,8 @@ public class ManagementView {
                 }else if(ch==3){
                     orderneed();
                 }else if(ch==4){
-                    deadlineProduct();
+                    deadlineProductFind();
+                    deadlineProductUdate();
                 }else if(ch==0){
 
                 }
@@ -259,7 +260,8 @@ public class ManagementView {
     }
 
     //폐기할 상품 조회
-    public void deadlineProduct(){
+    public void deadlineProductFind(){
+        
         List<Map<String,Object>> result = mc.MPJfind();
         System.out.println(
             "------폐기 할 상품------");
@@ -268,11 +270,35 @@ public class ManagementView {
         System.out.println(
             "-----------------------------");
             for(Map<String,Object> i : result){
-                System.out.print(i.get("mno"));
-                System.out.print(i.get("pname"));
-                System.out.println(i.get("mdate"));
+                System.out.println(i.get("mno") +"    |"+ i.get("pname")+"    |"+ i.get("mdate"));
+                
             }
     }
 
+    //페기 상품 업데이트 U
+    public void deadlineProductUdate(){
+        try {
+            System.out.println("변경할 재고 번호 입력: ");  int mno = scan.nextInt();
+
+            String mstatus="폐기";
+
+            boolean result = mc.deadlineProductUpdate(mno,mstatus);
+
+            if (result) {
+                System.out.println("폐기 수정 성공");
+            }else{
+                System.out.println("폐기 수정 실패");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println(e + "올바른 입력을 하세요");
+        }catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    
+
+
+    
 
 } //class end

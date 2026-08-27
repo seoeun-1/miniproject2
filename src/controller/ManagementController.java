@@ -52,15 +52,25 @@ public class ManagementController {
 
     public List<Map<String,Object>> MPJfind(){
         List<Map<String,Object>> list = new ArrayList<>();
+        
         List<ManageProdJoinDto> MPJDTO = mpd.MPJfind();
-        Map<String,Object> maplist = new HashMap();
+        
         for(ManageProdJoinDto i : MPJDTO){
-            maplist.put("mno", i.getMno());
-            maplist.put("pname", i.getPname());
-            maplist.put("mdate", i.getMdate());
-            list.add(maplist);
+            if(i.getMstatus().equals("판매중/입고")){
+                Map<String,Object> maplist = new HashMap();
+                maplist.put("mno", i.getMno());
+                maplist.put("pname", i.getPname());
+                maplist.put("mdate", i.getMdate());
+                list.add(maplist); 
+            }
         }
         return list;
+    }
+
+    public boolean deadlineProductUpdate(int mno,String mstatus){
+        boolean result = mpd.deadlineProductUpdate(mno, mstatus);
+        return result;
+
     }
     // public List<DeadlineDiscountDto> deadlinediscount(){
     //     return md.Deadlinediscount();
