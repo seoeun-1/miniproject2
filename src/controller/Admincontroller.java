@@ -13,7 +13,7 @@ public class Admincontroller {
 
     private AdminDao ad = AdminDao.getInstance();
 
-    // 상품별 입고 이력 조회
+    // [1] 상품별 입고 이력 조회
      public ArrayList<AdminDto> findAllIn(int pno) {
         return ad.findAllIn(pno);
     }
