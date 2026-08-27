@@ -50,7 +50,7 @@ public class ManagementController {
         return md.inventory();
     }
 
-    public List<Map<String,Object>> MPJfind(){
+    public List<Map<String,Object>> deadlineProductFind(){
         List<Map<String,Object>> list = new ArrayList<>();
         
         List<ManageProdJoinDto> MPJDTO = mpd.MPJfind();
