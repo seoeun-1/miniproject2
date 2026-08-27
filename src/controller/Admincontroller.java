@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import model.dto.AdminDto;
 import model.dao.AdminDao;
 
-public class AdminController {
-    private AdminController(){}
-    private static final AdminController instance = new AdminController();
-    public static AdminController getInstance(){
+public class Admincontroller {
+    private Admincontroller(){}
+    private static final Admincontroller instance = new Admincontroller();
+    public static Admincontroller getInstance(){
         return instance;
     }
 
     private AdminDao ad = AdminDao.getInstance();
 
-    // 상품별 입고 이력 조회
+    // [1] 상품별 입고 이력 조회
      public ArrayList<AdminDto> findAllIn(int pno) {
         return ad.findAllIn(pno);
     }

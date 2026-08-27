@@ -2,7 +2,7 @@ package view;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import controller.AdminController;
+import controller.Admincontroller;
 import model.dto.AdminDto;
 
 public class AdminView {
@@ -14,14 +14,15 @@ public class AdminView {
         return instance;
     }
 
-    private AdminController ac = AdminController.getInstance();
+    private Admincontroller ac = Admincontroller.getInstance();
     Scanner scan = new Scanner(System.in);
 
     public void amenu() {
         while (true) {
+            System.out.println();
             System.out.println("┌──────────────────────── 입·출고 및 판매 이력 조회 ──────────────────────────────┐");
             System.out.println("│                                                                                │");
-            System.out.println("│   1. 상품별 입고 이력 조회   │   2. 상품별 판매 이력 조회   │   3. 뒤로 가기     │");
+            System.out.println("│   1. 상품별 입고 이력 조회   │   2. 상품별 판매 이력 조회   │   0. 뒤로 가기     │");
             System.out.println("│                                                                                │");
             System.out.println("└────────────────────────────────────────────────────────────────────────────────┘");
 
@@ -34,7 +35,7 @@ public class AdminView {
             else if (ch == 2) {
                 findAllOut();
             }
-            else if (ch == 3) {
+            else if (ch == 0) {
                 return;
             }
         }
@@ -42,6 +43,7 @@ public class AdminView {
 
     // [1] 상품별 입고 이력 조회
     public void findAllIn() {
+        System.out.println();
         System.out.println("========== 상품별 입고 이력 조회 ==========");
         System.out.print("조회할 상품번호를 입력하세요 : "); 
         int pno = scan.nextInt();
