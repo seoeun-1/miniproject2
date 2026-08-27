@@ -111,4 +111,3 @@ public static void clearConsole() {
 }
 
 } //  class end
-

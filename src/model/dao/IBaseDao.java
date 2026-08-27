@@ -28,4 +28,6 @@ public class IBaseDao {
     }
     //4. 기본 생성자에 연동 메소드 실행
     protected IBaseDao(){connect();}
+    
+
 }
