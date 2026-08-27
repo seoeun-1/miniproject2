@@ -14,13 +14,13 @@ public class AppStart {
 }
 */
 
-import view.AdminView;
+import view.DailysalesView;
 
 public class AppStart {
 
     public static void main(String[] args) {
 
-        AdminView.getInstance().amenu();
+        DailysalesView.getInstance().amenu();
 
     }
 }
