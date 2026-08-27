@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import model.dao.ProductDao;
 import model.dao.SaleDao;
 import model.dto.SaleDto;
+import view.AdminView;
 import view.CategoryView;
 import view.ProductView;
 
@@ -15,13 +16,13 @@ public class AppStart {
 }
 */
 
-import view.AdminView;
+import view.RecvsalesView ;
 
 public class AppStart {
 
     public static void main(String[] args) {
 
-        AdminView.getInstance().amenu();
+        RecvsalesView .getInstance().amenu();
 
     }
 }

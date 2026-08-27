@@ -51,5 +51,4 @@ public boolean cateDelete(int cno) {
 }
 
 
-
-    }
+}
