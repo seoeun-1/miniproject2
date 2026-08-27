@@ -40,7 +40,7 @@ public class DailysalesView {
     public void findAllTodaySales() {
         System.out.println();
         System.out.println("=================================");
-        System.out.println("오늘의 매출"                       );
+        System.out.println(           "오늘의 매출"            );
         System.out.println("=================================");
         System.out.println();
         System.out.print("조회할 날짜를 입력하세요 : "); 
@@ -55,9 +55,9 @@ public class DailysalesView {
         }
 
         System.out.println();
-        System.out.println("=====================================");
-        System.out.println("상품명 | 가격 | 판매수량 | 상품별 매출");
-        System.out.println("=====================================");
+        System.out.println("==========================================");
+        System.out.println("상품명  |  가격  |  판매수량  |  상품별 매출");
+        System.out.println("==========================================");
 
         // 총 판매수량 계산
         int totalcount = 0;

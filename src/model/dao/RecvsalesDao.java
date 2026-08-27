@@ -49,7 +49,7 @@ public class RecvsalesDao extends IBaseDao {
 
 
     // 상품 판매
-    public boolean saleProduct(int pno, int quantity) {
+    public boolean saleProduct(int pno, int salecount) {
 
         String sql =
                 "UPDATE management " +
@@ -64,11 +64,11 @@ public class RecvsalesDao extends IBaseDao {
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setInt(1, pno);
-            ps.setInt(2, quantity);
+            ps.setInt(2, salecount);
 
             int count = ps.executeUpdate();
 
-            return count == quantity;
+            return count == salecount;
 
         } catch (SQLException e) {System.out.println(e);}
 
@@ -116,17 +116,13 @@ public class RecvsalesDao extends IBaseDao {
                 "WHERE pno = ?";
 
         try {
-
-            PreparedStatement ps =
-                    conn.prepareStatement(sql);
+            PreparedStatement ps =  conn.prepareStatement(sql);
 
             ps.setInt(1, pno);
 
             return ps.executeUpdate() > 0;
 
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
+        } catch (SQLException e) {System.out.println(e);}
 
         return false;
     }
@@ -141,17 +137,13 @@ public class RecvsalesDao extends IBaseDao {
                 "WHERE pno = ?";
 
         try {
-
-            PreparedStatement ps =
-                    conn.prepareStatement(sql);
+            PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setInt(1, pno);
 
             return ps.executeUpdate() > 0;
 
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
+        } catch (SQLException e) {System.out.println(e);}
 
         return false;
     }

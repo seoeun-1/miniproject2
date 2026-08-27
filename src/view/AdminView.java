@@ -44,7 +44,9 @@ public class AdminView {
     // [1] 상품별 입고 이력 조회
     public void findAllIn() {
         System.out.println();
-        System.out.println("========== 상품별 입고 이력 조회 ==========");
+        System.out.println("=================================");
+        System.out.println(       "상품별 입고 이력 조회"      );
+        System.out.println("=================================");
         System.out.print("조회할 상품번호를 입력하세요 : "); 
         int pno = scan.nextInt();
 
