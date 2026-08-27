@@ -262,7 +262,7 @@ public class ManagementView {
     //폐기할 상품 조회
     public void deadlineProductFind(){
         
-        List<Map<String,Object>> result = mc.MPJfind();
+        List<Map<String,Object>> result = mc.deadlineProductFind();
         System.out.println(
             "------폐기 할 상품------");
         System.out.println(
