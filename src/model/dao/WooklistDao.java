@@ -31,9 +31,7 @@ public class WooklistDao<T> {
     // 모든 DTO를 받을 수있는 배열
     
 
-    // 크기가 3 이고 top이 3이면 
-    // 크기를 하나 늘리고 top은 그대로 대입하고 
-    // 추가 
+    // 자료 추가 
     public boolean add( T value){
         
         if(size ==  top){
@@ -49,12 +47,16 @@ public class WooklistDao<T> {
         }
         list[top] = value;
         top ++;
-        System.out.println("등록성공");
         return true;
     }
 
-    // for 문을 사용해서 배열을 싹 돌려서 조회 
-    // 조회 
+    // 미구현
+    public void find(){
+        System.out.println(type.toString());
+    }
+
+    // for 문을 사용해서 배열을 싹 돌려서 출력
+    // 출력
     public void findall(){ 
 
     for(int i = 0; i < top; i++){ 
@@ -83,7 +85,6 @@ public class WooklistDao<T> {
     }
 } //  f end
 
-    // 수정
 
     // 삭제 
     public boolean delete( int num){
