@@ -20,6 +20,7 @@ public class MainView {
             System.out.println("=====================================");
             System.out.println(" 1. 관리자");
             System.out.println(" 2. 사용자");
+            System.out.println(" 0. 종료");
             System.out.println("=====================================");
             System.out.print("메뉴 선택 : ");
             
@@ -36,7 +37,10 @@ public class MainView {
                 break;
             } else if (ch == 2) {
                 RecvsalesView.getInstance().saleProduct();
-            } else {
+            } else if( ch == 0){
+                System.out.println("[안내] 프로그램을 종료합니다.");
+                    break;
+            }else {
                 System.out.println("[안내] 잘못된 입력입니다.");
             }
         }

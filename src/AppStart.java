@@ -63,8 +63,7 @@ public class AppStart {
 
                 // 9. 종료
                 else if (ch == 7) {
-                    System.out.println("[안내] 프로그램을 종료합니다.");
-                    break;
+                    MainView.getInstance().startMenu();
                 }
             }
             catch (Exception e) {

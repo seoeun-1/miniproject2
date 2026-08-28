@@ -318,7 +318,7 @@ public class ManagementView {
 
         for (DiscountPriceDto dto : result) {
             int discountRate =
-                    100 - (dto.getPprice() * 100 / dto.getOriginPrice());
+                    100 - (dto.getOriginPrice() * 100 / dto.getOriginPrice());
 
             System.out.printf(
                     "%-12d | %-10s | %-8d | %-5d%% | %-9d | %s%n",
@@ -326,7 +326,7 @@ public class ManagementView {
                     dto.getPname(),
                     dto.getOriginPrice(),
                     discountRate,
-                    dto.getPprice(),
+                    dto.getOriginPrice(),
                     dto.getMdate()
             );
         }

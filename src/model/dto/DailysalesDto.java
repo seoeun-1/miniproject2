@@ -11,7 +11,7 @@ public class DailysalesDto extends SuperDto{
 
     public DailysalesDto(String pname, int pprice, int salescount, int salesamount) {
         this.pname = pname;
-        this.pprice = super.getPprice();
+        this.pprice = pprice;
         this.salescount = salescount;
         this.salesamount = salesamount;
     }
@@ -25,11 +25,11 @@ public class DailysalesDto extends SuperDto{
     }
 
     public int getPprice() {
-        return pprice;
+        return this.pprice;
     }
 
     public void setPprice(int pprice) {
-        this.pprice = super.getPprice();
+        this.pprice = pprice;
     }
 
     public int getSalescount() {

@@ -88,8 +88,8 @@ public class SaleDto extends SuperDto{
         this.pname = pname;
     }
     public int getPprice() {
-        return pprice;
-    }
+        return checksale(this.pprice, this.mdate);
+    }   
     public void setPprice(int pprice) {
         
                 LocalDate now = LocalDate.now();

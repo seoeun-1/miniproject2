@@ -25,7 +25,7 @@ public class ManageProdJoinDto extends SuperDto{
         this.out_date = out_date;
         this.pno = pno;
         this.pname = pname;
-        this.pprice = super.getPprice();
+        this.pprice = pprice;
         this.pstatus = pstatus;
     }
     public int getMno() {
@@ -71,10 +71,10 @@ public class ManageProdJoinDto extends SuperDto{
         this.pname = pname;
     }
     public int getPprice() {
-        return pprice;
+        return checksale(this.pprice, this.mdate);
     }
     public void setPprice(int pprice) {
-        this.pprice = super.getPprice();
+        this.pprice = pprice;
     }
     public boolean isPstatus() {
         return pstatus;
