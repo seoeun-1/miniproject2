@@ -13,6 +13,7 @@ import controller.ManagementController;
 import model.History;
 import model.JunStack;
 import model.dao.ManagementDao;
+import model.dto.DiscountPriceDto;
 import model.dto.InventoryDto;
 import model.dto.ManagementDto;
 
@@ -305,6 +306,38 @@ public class ManagementView {
             System.out.println(e);
         }
     }
+
+
+  
+
+
+    public void discountFind() {
+        List<DiscountPriceDto> result = mc.discountFind();
+
+        System.out.println(
+                "유통재고번호 | 상품명       | 원가     | 할인율 | 할인 가격 | 유통기한"
+        );
+
+        System.out.println(
+                "------------------------------------------------------------------"
+        );
+
+        for (DiscountPriceDto dto : result) {
+            int discountRate =
+                    100 - (dto.getPprice() * 100 / dto.getOriginPrice());
+
+            System.out.printf(
+                    "%-12d | %-10s | %-8d | %-5d%% | %-9d | %s%n",
+                    dto.getMno(),
+                    dto.getPname(),
+                    dto.getOriginPrice(),
+                    discountRate,
+                    dto.getPprice(),
+                    dto.getMdate()
+            );
+        }
+    }
+
 
 
 } //class end
