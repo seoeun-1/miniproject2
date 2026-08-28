@@ -60,10 +60,9 @@ public class RecvsalesDto {
         this.pstatus = pstatus;
     }
 
-
+    
     @Override
     public String toString() {
-
         return "RecvsalesDto ["
                 + "mno=" + mno
                 + ", mdate=" + mdate
