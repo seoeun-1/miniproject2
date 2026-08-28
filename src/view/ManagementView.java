@@ -39,6 +39,7 @@ public class ManagementView {
                 ConsoleLayout.line(" 2.재고 수정 ");
                 ConsoleLayout.line(" 3.재고 삭제 ");
                 ConsoleLayout.line(" 4.판매 여부 조정 ");
+        
 
                 ConsoleLayout.line(" 0.뒤로 가기 ");
 
@@ -56,7 +57,7 @@ public class ManagementView {
                 }else if(ch==3){
                     mdelete();
                 }else if(ch==4){
-
+                    RecvsalesView.getInstance().statusMenu();
                 }else if(ch==0){
                    History.history.pop().run();
                    return;

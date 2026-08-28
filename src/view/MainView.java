@@ -2,8 +2,14 @@ package view;
 
 import java.util.Scanner;
 
+import model.dao.SaleDao;
+
 public class MainView {
-    
+    private MainView(){}
+    private static final MainView instance = new MainView();
+    public static MainView getInstance() { return instance; }
+
+
     public void startMenu() {
         Scanner scan = new Scanner(System.in);
         
@@ -29,7 +35,7 @@ public class MainView {
             if (ch == 1) {
                 
             } else if (ch == 2) {
-                
+                RecvsalesView.getInstance().saleProduct();
             } else {
                 System.out.println("[안내] 잘못된 입력입니다.");
             }
