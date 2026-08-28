@@ -1,4 +1,4 @@
-/* 
+
 import java.util.Scanner;
 
 import view.CategoryView;
@@ -46,11 +46,12 @@ public class AppStart {
 
                 // 3. 재고 현황 관리
                 else if (ch == 3)
-                    ManagementView.getInstance().menu();
+                    ManagementView.getInstance().inventory();
 
                 // 4. 마감할인 작동 적용
-                else if (ch == 4)
+                /* else if (ch == 4)
                     View.getInstance().menu();
+                */
 
                 // 5. 입고 및 판매 이력 조회
                 else if (ch == 5)
@@ -73,4 +74,3 @@ public class AppStart {
         }
     }
 }
-*/
