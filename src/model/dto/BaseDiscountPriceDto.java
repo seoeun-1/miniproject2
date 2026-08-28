@@ -3,9 +3,29 @@ package model.dto;
 import java.time.LocalDate;
 
 public class BaseDiscountPriceDto {
-    int pprice;
-    LocalDate mdate;
+    private int pprice;
+    private LocalDate mdate;
     
+    
+    public int getPprice() {
+        return pprice;
+    }
+
+
+    public void setPprice(int pprice) {
+        this.pprice = pprice;
+    }
+
+
+    public LocalDate getMdate() {
+        return mdate;
+    }
+
+
+    public void setMdate(LocalDate mdate) {
+        this.mdate = mdate;
+    }
+
 
     public BaseDiscountPriceDto() {
     }

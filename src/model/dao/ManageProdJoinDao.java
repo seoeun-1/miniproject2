@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.dto.DiscountPriceDto;
 import model.dto.ManageProdJoinDto;
 import model.dto.ProductManagementDto;
 
@@ -84,4 +85,44 @@ public class ManageProdJoinDao extends IBaseDao {
         }
         return false;
     }
+
+    public List<DiscountPriceDto> discountFind() {
+        List<DiscountPriceDto> list = new ArrayList<>();
+
+        try {
+            String sql = """
+            SELECT mm.mno, pd.pname, pd.pprice, mm.mdate
+            FROM management mm
+            JOIN product pd ON mm.pno = pd.pno
+            WHERE mm.mstatus IN ('판매중/입고')
+            AND mm.out_date IS NULL
+            AND mm.mdate BETWEEN CURDATE()
+                            AND DATE_ADD(CURDATE(), INTERVAL 1 DAY)
+        """;
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Date sqlMdate = rs.getDate("mdate");
+
+                DiscountPriceDto dto = new DiscountPriceDto(
+                        rs.getInt("pprice"),
+                        sqlMdate != null ? sqlMdate.toLocalDate() : null
+                );
+
+                dto.setPname(rs.getString("pname"));
+                dto.setOriginPrice(rs.getInt("pprice"));
+                dto.setMno(rs.getInt("mno"));
+
+                list.add(dto);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("discountFind 오류");
+            e.printStackTrace();
+        }
+
+    return list;
+}
 }
