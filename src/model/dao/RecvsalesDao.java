@@ -18,8 +18,7 @@ public class RecvsalesDao extends IBaseDao {
     }
 
     // [기능 1] 상품 판매 관리
-
-    // 구매 가능한 개별 상품 조회
+    // 구매 가능한 개별 상품 조회   
     public ArrayList<RecvsalesDto> findAllProduct() {
 
         ArrayList<RecvsalesDto> list = new ArrayList<>();
@@ -61,10 +60,8 @@ public class RecvsalesDao extends IBaseDao {
         return list;
     }
 
-
     // 상품 판매 처리
     public boolean saleProduct(int purchaseNo) {
-
         String sql =
                 "UPDATE management "
                 + "SET mstatus = '판매', "
@@ -73,7 +70,6 @@ public class RecvsalesDao extends IBaseDao {
                 + "AND mstatus = '판매중/입고'";
 
         try {
-
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setInt(1, purchaseNo);
@@ -85,7 +81,6 @@ public class RecvsalesDao extends IBaseDao {
         } catch (SQLException e) {
             System.out.println(e);
         }
-
         return false;
     }
 
@@ -100,9 +95,7 @@ public class RecvsalesDao extends IBaseDao {
                 "SELECT pno, pname, pprice, pstatus "
                 + "FROM product "
                 + "ORDER BY pno";
-
         try {
-
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ResultSet rs = ps.executeQuery();
@@ -122,10 +115,8 @@ public class RecvsalesDao extends IBaseDao {
         } catch (SQLException e) {
             System.out.println(e);
         }
-
         return list;
     }
-
 
     // 판매중으로 변경
     public boolean startSales(int pno) {
