@@ -8,48 +8,55 @@ import java.util.ArrayList;
 import model.dto.RecvsalesDto;
 
 public class RecvsalesDao extends IBaseDao {
-    private RecvsalesDao(){}
-    private static final RecvsalesDao instance = new RecvsalesDao();
-    public static RecvsalesDao getInstance() {return instance;}
+    private RecvsalesDao() {}
+    private static final RecvsalesDao instance =  new RecvsalesDao();
 
-    // 1. 상품 판매 / 재고 관리
-    // 판매 가능한 상품과 현재 재고 조회
+    public static RecvsalesDao getInstance() {
+        return instance;
+    }
+
+    // [기능 1] 상품 판매 관리
+
+    // 상품 + 현재 재고 조회
     public ArrayList<RecvsalesDto> findAllProduct() {
-        ArrayList<RecvsalesDto> list = new ArrayList<>();
+
+        ArrayList<RecvsalesDto> list =
+                new ArrayList<>();
+
         String sql =
-                "SELECT proudct.pno, proudct.pname, proudct.pprice, proudct.pstatus, " +
-                "COUNT(management.mno) AS inventory " +
-                "FROM product " +
-                "LEFT JOIN management " +
-                "ON proudct.pno = management.pno " +
-                "AND management.mstatus = '판매중/입고' " +
-                "WHERE proudct.pstatus = 1 " +
-                "GROUP BY proudct.pno, proudct.pname, proudct.pprice, proudct.pstatus " +
-                "ORDER BY proudct.pno";
+                "SELECT p.pno, p.pname, p.pprice, p.pstatus, " +
+                "COUNT(m.mno) AS inventory " +
+                "FROM product p " +
+                "LEFT JOIN management m " +
+                "ON p.pno = m.pno " +
+                "AND m.mstatus = '판매중/입고' " +
+                "GROUP BY p.pno, p.pname, p.pprice, p.pstatus " +
+                "ORDER BY p.pno";
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                RecvsalesDto recvsalesDto = new RecvsalesDto();
-                recvsalesDto.setPno(rs.getInt("pno"));
-                recvsalesDto.setPname(rs.getString("pname"));
-                recvsalesDto.setPprice(rs.getInt("pprice"));
-                recvsalesDto.setPstatus(rs.getBoolean("pstatus"));
-                recvsalesDto.setInventory(rs.getInt("inventory"));
+                RecvsalesDto dto = new RecvsalesDto();
+                dto.setPno(rs.getInt("pno"));
+                dto.setPname(rs.getString("pname"));
+                dto.setPprice(rs.getInt("pprice"));
+                dto.setPstatus(rs.getBoolean("pstatus"));
+                dto.setInventory(rs.getInt("inventory"));
 
-                list.add(recvsalesDto);
+                list.add(dto);
             }
 
-        } catch (SQLException e) {System.out.println(e);}
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
 
         return list;
     }
 
-
-    // 상품 판매
-    public boolean saleProduct(int pno, int salecount) {
+    // 상품 판매 처리
+    public boolean saleProduct(int pno, int saleCount) {
 
         String sql =
                 "UPDATE management " +
@@ -60,22 +67,24 @@ public class RecvsalesDao extends IBaseDao {
                 "LIMIT ?";
 
         try {
-
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setInt(1, pno);
-            ps.setInt(2, salecount);
+            ps.setInt(2, saleCount);
 
             int count = ps.executeUpdate();
 
-            return count == salecount;
+            return count == saleCount;
 
-        } catch (SQLException e) {System.out.println(e);}
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
 
         return false;
     }
 
-    // 2. 판매여부 관리
+    // [기능 2] 판매여부 관리
+
     // 전체 상품 판매여부 조회
     public ArrayList<RecvsalesDto> findAllStatus() {
 
@@ -89,19 +98,21 @@ public class RecvsalesDao extends IBaseDao {
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-
             while (rs.next()) {
 
-                RecvsalesDto recvsaledto = new RecvsalesDto();
-                recvsaledto.setPno(rs.getInt("pno"));
-                recvsaledto.setPname(rs.getString("pname"));
-                recvsaledto.setPprice(rs.getInt("pprice"));
-                recvsaledto.setPstatus(rs.getBoolean("pstatus"));
+                RecvsalesDto dto = new RecvsalesDto();
 
-                list.add(recvsaledto);
+                dto.setPno(rs.getInt("pno"));
+                dto.setPname(rs.getString("pname"));
+                dto.setPprice(rs.getInt("pprice"));
+                dto.setPstatus(rs.getBoolean("pstatus"));
+
+                list.add(dto);
             }
 
-        } catch (SQLException e) {System.out.println(e);}
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
 
         return list;
     }
@@ -116,13 +127,13 @@ public class RecvsalesDao extends IBaseDao {
                 "WHERE pno = ?";
 
         try {
-            PreparedStatement ps =  conn.prepareStatement(sql);
-
+            PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, pno);
-
             return ps.executeUpdate() > 0;
 
-        } catch (SQLException e) {System.out.println(e);}
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
 
         return false;
     }
@@ -138,12 +149,12 @@ public class RecvsalesDao extends IBaseDao {
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-
             ps.setInt(1, pno);
-
             return ps.executeUpdate() > 0;
 
-        } catch (SQLException e) {System.out.println(e);}
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
 
         return false;
     }

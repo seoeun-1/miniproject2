@@ -15,7 +15,7 @@ public class DailysalesView {
     private DailysalesController ds = DailysalesController.getInstance();
     Scanner scan = new Scanner(System.in);
 
-    public void amenu() {
+    public void dmenu() {
         while (true) {
             System.out.println();
             System.out.println("┌──────────── 하루 매출 확인 ────────────┐");
@@ -84,4 +84,6 @@ public class DailysalesView {
         System.out.println("==================================================");
         System.out.println();
     }
+
+ 
 }

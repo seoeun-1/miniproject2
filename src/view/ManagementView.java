@@ -296,9 +296,5 @@ public class ManagementView {
         }
     }
 
-    
-
-
-    
 
 } //class end
