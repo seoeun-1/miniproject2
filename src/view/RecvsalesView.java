@@ -94,8 +94,9 @@ public class RecvsalesView {
         System.out.println("==============================================================");
 
         // 구매번호 입력
-        System.out.println("종료 : 0 ");
         System.out.print("구매번호 : ");
+        System.out.println();
+        System.out.println("종료 : 0 ");
         int purchaseNo = scan.nextInt();
         if(purchaseNo == 0){ break; }
         boolean result2 = rd.saleProduct(purchaseNo);
