@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import controller.ProductController;
 import model.dao.ProductDao;
+import model.dao.WooklistDao;
 import model.dto.ProductDto;
 
 public class ProductView {
@@ -72,10 +73,8 @@ public class ProductView {
     // [2] R 전체 조회
     public void pfindAll( ){
         // 우선은 예제에서 배운것처럼 ArrayList로 결과 받기 
-        ArrayList<ProductDto> result = pc.pfindAll();
-        for( ProductDto dto : result){
-            System.out.println(dto.toString());
-        }
+        WooklistDao<ProductDto> result = pc.pfindAll();
+        result.findall();
     }
 
     // [3] U
@@ -111,5 +110,5 @@ public class ProductView {
     }
 
 
-    
+
 }

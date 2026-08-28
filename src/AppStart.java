@@ -21,7 +21,7 @@ public class AppStart {
 
     public static void main(String[] args) {
 
-        AdminView.getInstance().amenu();
+        ProductView.getInstance().pmenu();
 
     }
 }
