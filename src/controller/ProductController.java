@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 
 import model.dao.ProductDao;
+import model.dao.WooklistDao;
 import model.dto.ProductDto;
 
 public class ProductController {
@@ -22,8 +23,8 @@ public class ProductController {
 
 
     // [2] R 전체 출력
-    public ArrayList<ProductDto> pfindAll(){
-        ArrayList<ProductDto> result = pd.pfindAll();
+    public WooklistDao<ProductDto> pfindAll(){
+        WooklistDao<ProductDto> result = pd.pfindAll();
         return result;
     }
 

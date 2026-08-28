@@ -8,7 +8,7 @@ public class IBaseDao {
     //1. 연동 정보
     private String url = "jdbc:mysql://127.0.0.1:3306/foodmanager";
     private String user = "root";
-    private String password = "123123";
+    private String password = "1234";
 
     //2.연동 인터페이스 , protected 상속 관계이면 다른 패키지도 접근 허용
     protected Connection conn;
@@ -28,4 +28,6 @@ public class IBaseDao {
     }
     //4. 기본 생성자에 연동 메소드 실행
     protected IBaseDao(){connect();}
+    
+
 }

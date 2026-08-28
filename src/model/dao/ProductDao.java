@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import model.dao.WooklistDao;
+
 import model.dto.ProductDto;
 
 public class ProductDao extends IBaseDao {
@@ -44,8 +46,8 @@ public class ProductDao extends IBaseDao {
 
 
     // [2] R 전체 출력
-    public ArrayList<ProductDto> pfindAll(){
-        ArrayList<ProductDto> list = new ArrayList<>();
+    public WooklistDao<ProductDto> pfindAll(){
+        WooklistDao<ProductDto> wooklist = new WooklistDao<>(ProductDto.class);
         try{
             // sql 작성
             String sql = "select * from product";
@@ -67,12 +69,11 @@ public class ProductDao extends IBaseDao {
                 productDto.setCno(rs.getInt("cno"));
 
                 // 변환한 DTO 리스트에 담기
-                list.add(productDto);
-
+                wooklist.add(productDto);
                 
             } //  반복문 종료
         }catch( SQLException e){System.out.println(e);}
-        return list;
+        return wooklist;
     } // pfindAll() end
 
 
