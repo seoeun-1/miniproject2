@@ -21,11 +21,15 @@ public class CategoryView {
     // 3. 메인 메뉴 화면
     public void index() {
         while (true) {
-            System.out.println("\n--- [ 카테고리 관리 프로그램 ] ---");
-            System.out.println("1. 전체 조회 | 2. 등록 | 3. 수정 | 4. 삭제 | 5. 종료");
-            System.out.print("메뉴 선택 > ");
-            
-            int ch = scan.nextInt(); // scan 사용
+            System.out.println("+----------------------------------------------------------+");
+            System.out.println("|                    카테고리 관리                        |");
+            System.out.println("+----------------------------------------------------------+");
+            System.out.println("|  1. 전체 조회          |  2. 등록                      |");
+            System.out.println("|  3. 수정               |  4. 삭제       |  5. 종료     |");
+            System.out.println("+----------------------------------------------------------+");
+            System.out.print("메뉴 선택 : ");
+
+            int ch = scan.nextInt();
 
             if (ch == 1) { cateFindall(); }
             else if (ch == 2) { cateRegister(); }

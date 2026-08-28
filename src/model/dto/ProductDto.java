@@ -1,6 +1,6 @@
 package model.dto;
 
-public class ProductDto {
+public class ProductDto extends SuperDto{
     // Product DB 정보를 받기 위한 매개변수들
     private int pno;
     private String pname;
@@ -13,13 +13,13 @@ public class ProductDto {
     public ProductDto(int pno, String pname, int pprice, boolean pstatus, int cno){
         this.pno = pno;
         this.pname = pname;
-        this.pprice = pprice;
+        this.pprice = super.getPprice();
         this.pstatus = pstatus;
         this.cno = cno;
     }
     public ProductDto(String pname, int pprice, int cno){
         this.pname = pname;
-        this.pprice = pprice;
+        this.pprice = super.getPprice();
         this.cno = cno;
     }
 
@@ -39,7 +39,7 @@ public class ProductDto {
         this.pname = pname;
     }
     public int getPprice() {
-        return pprice;
+        return super.getPprice();
     }
     public void setPprice(int pprice) {
         this.pprice = pprice;

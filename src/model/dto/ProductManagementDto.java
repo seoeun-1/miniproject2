@@ -2,7 +2,7 @@ package model.dto;
 
 import java.time.LocalDate;
 
-public class ProductManagementDto {
+public class ProductManagementDto extends SuperDto{
     //상품 속성
     int pno;
     String pname;
@@ -22,7 +22,7 @@ public class ProductManagementDto {
             String mstatus, LocalDate in_date, LocalDate out_date) {
         this.pno = pno;
         this.pname = pname;
-        this.pprice = pprice;
+        this.pprice = super.getPprice();
         this.pstatus = pstatus;
         this.cno = cno;
         this.mno = mno;
@@ -47,7 +47,7 @@ public class ProductManagementDto {
         return pprice;
     }
     public void setPprice(int pprice) {
-        this.pprice = pprice;
+        this.pprice = super.getPprice();
     }
     public boolean isPstatus() {
         return pstatus;
