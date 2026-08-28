@@ -14,7 +14,7 @@ public class DailysalesDao extends IBaseDao{
         return instance;
     }
 
-    // 오늘 판매 매출 조회
+    // 오늘 상품 판매 매출 조회
     public ArrayList<DailysalesDto> findAllTodaySales(String date) {
 
         ArrayList<DailysalesDto> list = new ArrayList<>();
@@ -44,11 +44,9 @@ public class DailysalesDao extends IBaseDao{
 
                 list.add(dailysalesdto);
             }
-
         } catch (SQLException e) {
             System.out.println(e);
         }
-
         return list;
     }
 
