@@ -2,13 +2,31 @@ package model.dto;
 
 public class RecvsalesDto {
 
-    private int pno;
-    private String pname;
-    private int pprice;
-    private int inventory;
-    private boolean pstatus;
+    private int mno;           // 구매번호
+    private String mdate;      // 유통기한
+    private int pno;           // 상품번호
+    private String pname;      // 상품명
+    private int pprice;        // 가격
+    private boolean pstatus;   // 판매여부
+
 
     public RecvsalesDto() {}
+
+    public int getMno() {
+        return mno;
+    }
+
+    public void setMno(int mno) {
+        this.mno = mno;
+    }
+
+    public String getMdate() {
+        return mdate;
+    }
+
+    public void setMdate(String mdate) {
+        this.mdate = mdate;
+    }
 
     public int getPno() {
         return pno;
@@ -34,14 +52,6 @@ public class RecvsalesDto {
         this.pprice = pprice;
     }
 
-    public int getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(int inventory) {
-        this.inventory = inventory;
-    }
-
     public boolean isPstatus() {
         return pstatus;
     }
@@ -50,9 +60,17 @@ public class RecvsalesDto {
         this.pstatus = pstatus;
     }
 
+
     @Override
     public String toString() {
-        return "AdminDto ["+ "pno=" + pno + ", pname=" + pname + ", pprice=" + pprice
-                                + ", inventory=" + inventory + ", pstatus=" + pstatus + "]";
+
+        return "RecvsalesDto ["
+                + "mno=" + mno
+                + ", mdate=" + mdate
+                + ", pno=" + pno
+                + ", pname=" + pname
+                + ", pprice=" + pprice
+                + ", pstatus=" + pstatus
+                + "]";
     }
 }
