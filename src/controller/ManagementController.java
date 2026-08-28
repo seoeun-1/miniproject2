@@ -8,6 +8,7 @@ import java.util.Map;
 
 import model.dao.ManageProdJoinDao;
 import model.dao.ManagementDao;
+import model.dto.DiscountPriceDto;
 import model.dto.InventoryDto;
 import model.dto.ManageProdJoinDto;
 import model.dto.ManagementDto;
@@ -77,4 +78,12 @@ public class ManagementController {
     // public List<DeadlineDiscountDto> deadlinediscount(){
     //     return md.Deadlinediscount();
     // }
+
+
+    // DiscountPriceController.java
+
+    public List<DiscountPriceDto> discountFind() {
+        return mpd.discountFind();
+    }
+
 }
