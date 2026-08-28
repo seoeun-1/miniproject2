@@ -25,7 +25,7 @@ public class DailysalesDto extends SuperDto{
     }
 
     public int getPprice() {
-        return pprice;
+        return this.pprice;
     }
 
     public void setPprice(int pprice) {

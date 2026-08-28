@@ -47,7 +47,7 @@ public class RecvsalesDao extends IBaseDao {
                 dto.setMno(rs.getInt("mno"));
                 dto.setPname(rs.getString("pname"));
                 dto.setPprice(rs.getInt("pprice"));
-                dto.setMdate(rs.getString("mdate"));
+                dto.setMdate(rs.getDate("mdate").toLocalDate());
                 dto.setPstatus(rs.getBoolean("pstatus"));
 
                 list.add(dto);
