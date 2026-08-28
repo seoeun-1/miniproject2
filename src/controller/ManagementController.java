@@ -51,16 +51,18 @@ public class ManagementController {
     }
 
     public List<Map<String,Object>> deadlineProductFind(){
+        //List<Map<String,Object>> 생성
         List<Map<String,Object>> list = new ArrayList<>();
-        
+        //조회 받아오기
         List<ManageProdJoinDto> MPJDTO = mpd.MPJfind();
-        
+
+
         for(ManageProdJoinDto i : MPJDTO){
             if(i.getMstatus().equals("판매중/입고")){
                 Map<String,Object> maplist = new HashMap();
-                maplist.put("mno", i.getMno());
-                maplist.put("pname", i.getPname());
-                maplist.put("mdate", i.getMdate());
+                maplist.put("managementNumber", i.getMno());
+                maplist.put("productName", i.getPname());
+                maplist.put("managementDate", i.getMdate());
                 list.add(maplist); 
             }
         }

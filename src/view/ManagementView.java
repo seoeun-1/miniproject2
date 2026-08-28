@@ -9,14 +9,17 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-
 import controller.ManagementController;
+import model.History;
+import model.JunStack;
 import model.dao.ManagementDao;
 import model.dto.InventoryDto;
 import model.dto.ManagementDto;
 
+
 public class ManagementView {
 
+    
     private ManagementView(){} // 1.
     private static final ManagementView instance = new ManagementView(); // 2.
     public static ManagementView getInstance( ){ return instance; } // 3. 
@@ -24,7 +27,9 @@ public class ManagementView {
     static Scanner scan = new Scanner(System.in);
     // [*] MVC패턴 흐름의 controller 싱글톤 호출
     private ManagementController mc = ManagementController.getInstance();
+
     
+
         //관리자 메뉴 2번
         public void InventorySalesMenu(){
             for(;;){
@@ -53,7 +58,8 @@ public class ManagementView {
                 }else if(ch==4){
 
                 }else if(ch==0){
-
+                   History.history.pop().run();
+                   return;
                 }
             }
         }
@@ -91,7 +97,10 @@ public class ManagementView {
                     deadlineProductFind();
                     deadlineProductUdate();
                 }else if(ch==0){
-
+                    if (!History.history.isEmpty()) {
+                        History.history.pop().run();
+                    }
+                    return;
                 }
             }
         }
