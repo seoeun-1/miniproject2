@@ -8,7 +8,7 @@ import view.ManagementView;
 import view.AdminView;
 import view.DailysalesView;
 
-public class App {
+public class AppStart {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         while (true) {
