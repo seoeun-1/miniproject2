@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class SaleDto {
+public class SaleDto extends SuperDto{
     private int mno ;
     private int cno ;
     private String cname;

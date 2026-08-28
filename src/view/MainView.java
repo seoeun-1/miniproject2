@@ -33,7 +33,7 @@ public class MainView {
             scan.nextLine();
 
             if (ch == 1) {
-                
+                break;
             } else if (ch == 2) {
                 RecvsalesView.getInstance().saleProduct();
             } else {

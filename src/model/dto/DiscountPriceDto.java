@@ -2,7 +2,7 @@ package model.dto;
 
 import java.time.LocalDate;
 
-public class DiscountPriceDto extends BaseDiscountPriceDto {
+public class DiscountPriceDto extends SuperDto {
     private String pname;
     private int originPrice;
     private int mno;

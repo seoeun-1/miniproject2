@@ -2,7 +2,7 @@ package model.dto;
 
 import java.time.LocalDate;
 
-public class ManageProdJoinDto {
+public class ManageProdJoinDto extends SuperDto{
     int mno;
     LocalDate mdate;
     String mstatus;
@@ -25,7 +25,7 @@ public class ManageProdJoinDto {
         this.out_date = out_date;
         this.pno = pno;
         this.pname = pname;
-        this.pprice = pprice;
+        this.pprice = super.getPprice();
         this.pstatus = pstatus;
     }
     public int getMno() {
@@ -74,7 +74,7 @@ public class ManageProdJoinDto {
         return pprice;
     }
     public void setPprice(int pprice) {
-        this.pprice = pprice;
+        this.pprice = super.getPprice();
     }
     public boolean isPstatus() {
         return pstatus;

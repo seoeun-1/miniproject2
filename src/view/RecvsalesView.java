@@ -30,7 +30,7 @@ public class RecvsalesView {
             System.out.println();
             System.out.println("┌──────────────────── 상품 판매 관리 ────────────────────┐");
             System.out.println("│                                                       │");
-            System.out.println("│   1. 상품 판매 관리   │   2. 판매여부   │   0. 뒤로 가기 │");
+            System.out.println("│1. 상품 판매 관리   │   2. 판매여부   │   0. 뒤로 가기 │");
             System.out.println("│                                                       │");
             System.out.println("└───────────────────────────────────────────────────────┘");
 
@@ -52,7 +52,8 @@ public class RecvsalesView {
     // [기능 1] 상품 판매 관리
 
     public void saleProduct() {
-        System.out.println();
+        while(true){
+            System.out.println();
         System.out.println("========== 상품 판매 관리 ==========");
 
         // 판매 가능한 개별 재고 조회
@@ -94,8 +95,10 @@ public class RecvsalesView {
 
         // 구매번호 입력
         System.out.print("구매번호 : ");
+        System.out.println();
+        System.out.println("종료 : 0 ");
         int purchaseNo = scan.nextInt();
-
+        if(purchaseNo == 0){ break; }
         boolean result2 = rd.saleProduct(purchaseNo);
 
         if (result2) {
@@ -107,7 +110,8 @@ public class RecvsalesView {
             System.out.println();
             System.out.println("[안내] 해당 구매번호의 상품을 구매할 수 없습니다.");
         }
-    }
+        } //  무한루프 종료
+    } // f end
 
     // [기능 2] 판매여부 관리
 

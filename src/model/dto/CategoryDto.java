@@ -1,6 +1,6 @@
 package model.dto;
 
-public class CategoryDto {
+public class CategoryDto extends SuperDto{
     private int cno;         // 카테고리 번호 (PK)
     private String cname;    // 카테고리명
 
