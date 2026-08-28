@@ -1,6 +1,6 @@
 package model.dto;
 
-public class InventoryDto {
+public class InventoryDto extends SuperDto{
     String pname;
     int inventory;
     public InventoryDto() {

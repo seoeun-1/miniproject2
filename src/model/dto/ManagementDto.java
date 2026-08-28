@@ -2,7 +2,7 @@ package model.dto;
 
 import java.time.LocalDate;
 
-public class ManagementDto {
+public class ManagementDto extends SuperDto{
     int mno;
     LocalDate mdate;
     int pno;

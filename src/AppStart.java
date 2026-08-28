@@ -18,19 +18,15 @@ public class AppStart {
         while (true) {
             try {
 
-                System.out.println("╔══════════════════════════════════════╗");
-                System.out.println("║              [ 메뉴 선택 ]           ║");
-                System.out.println("╠══════════════════════════════════════╣");
-                System.out.println("║  0. 카테고리 관리                    ║");
-                System.out.println("║  1. 상품 관리                        ║");
-                System.out.println("║  2. 입고 및 판매 관리                ║");
-                System.out.println("║  3. 재고 현황 관리                   ║");
-                System.out.println("║  4. 마감할인 자동 적용               ║");
-                System.out.println("║  5. 입고 및 판매 이력 조회           ║");
-                System.out.println("║  6. 하루 매출                        ║");
-                System.out.println("║  7. 종료                             ║");
-                System.out.println("╚══════════════════════════════════════╝");
-                System.out.print("▶ 번호 선택 : ");
+                System.out.println("+----------------------------------------------------------+");
+                System.out.println("|                       상품 관리                          |");
+                System.out.println("+----------------------------------------------------------+");
+                System.out.println("|  0. 카테고리 관리      |  1. 상품 관리                  |");
+                System.out.println("|  2. 입고 및 판매 관리  |  3. 재고 현황 관리            |");
+                System.out.println("|  4. 마감할인 자동 적용 |  5. 입고 및 판매 이력 조회     |");
+                System.out.println("|  6. 하루 매출          |  7. 종료                      |");
+                System.out.println("+----------------------------------------------------------+");
+                System.out.print("번호 선택 : ");
 
                 int ch = scan.nextInt();
 

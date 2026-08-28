@@ -30,7 +30,7 @@ public class RecvsalesView {
             System.out.println();
             System.out.println("┌──────────────────── 상품 판매 관리 ────────────────────┐");
             System.out.println("│                                                       │");
-            System.out.println("│   1. 상품 판매 관리   │   2. 판매여부   │   0. 뒤로 가기 │");
+            System.out.println("│1. 상품 판매 관리   │   2. 판매여부   │   0. 뒤로 가기 │");
             System.out.println("│                                                       │");
             System.out.println("└───────────────────────────────────────────────────────┘");
 

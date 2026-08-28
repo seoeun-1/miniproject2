@@ -34,21 +34,15 @@ public class ManagementView {
         //관리자 메뉴 2번
         public void InventorySalesMenu(){
             for(;;){
-                ConsoleLayout.header();
-                ConsoleLayout.blank();
-                ConsoleLayout.line(" 1.입고 ");
-                ConsoleLayout.line(" 2.재고 수정 ");
-                ConsoleLayout.line(" 3.재고 삭제 ");
-                ConsoleLayout.line(" 4.판매 여부 조정 ");
-        
+                System.out.println("+----------------------------------------------------------+");
+                System.out.println("|                       상품 관리                          |");
+                System.out.println("+----------------------------------------------------------+");
+                System.out.println("|  1. 입고             |  2. 재고 수정                   |");
+                System.out.println("|  3. 재고 삭제        |  4. 판매 여부 조정              |");
+                System.out.println("|  0. 뒤로가기                                            |");
+                System.out.println("+----------------------------------------------------------+");
+                System.out.print("메뉴 선택 : ");
 
-                ConsoleLayout.line(" 0.뒤로 가기 ");
-
-                System.out.println();
-                ConsoleLayout.blank();
-                ConsoleLayout.footer();
-            
-                System.out.println("번호 입력 > ");
                 int ch = scan.nextInt();
                 
                 if(ch==1){

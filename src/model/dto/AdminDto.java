@@ -1,6 +1,6 @@
 package model.dto;
 
-public class AdminDto {
+public class AdminDto extends SuperDto{
     private int mno;
     private int pno;
     private String mstatus;
