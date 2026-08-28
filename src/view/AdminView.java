@@ -20,7 +20,7 @@ public class AdminView {
     public void amenu() {
         while (true) {
             System.out.println();
-            System.out.println("┌──────────────────────── 입·출고 및 판매 이력 조회 ──────────────────────────────┐");
+            System.out.println("┌────────────────────────── 입고 및 판매 이력 조회 ──────────────────────────────┐");
             System.out.println("│                                                                                │");
             System.out.println("│   1. 상품별 입고 이력 조회   │   2. 상품별 판매 이력 조회   │   0. 뒤로 가기     │");
             System.out.println("│                                                                                │");
@@ -73,33 +73,44 @@ public class AdminView {
     }
 
     // [2] 상품별 판매 이력 조회
-    public void findAllOut() {
+public void findAllOut() {
+    System.out.println();
+    System.out.println("=================================");
+    System.out.println("      상품별 판매 이력 조회");
+    System.out.println("=================================");
+
+    System.out.print("조회할 상품번호를 입력하세요 : ");
+    int pno = scan.nextInt();
+
+    ArrayList<AdminDto> result = ac.findAllOut(pno);
+
+    // 조회 결과가 없는 경우
+    if (result.isEmpty()) {
         System.out.println();
-        System.out.println("========== 상품별 판매 이력 조회 ==========");
-        System.out.print("조회할 상품번호를 입력하세요 : ");
-        int pno = scan.nextInt();
+        System.out.println("[안내] 해당 상품의 판매 이력이 없습니다.");
+        System.out.println("[안내] 총 판매 갯수 : 0개");
 
-        ArrayList<AdminDto> result = ac.findAllOut(pno);
-
-        // 조회 결과가 없는 경우
-        if (result.isEmpty()) {
-            System.out.println("[안내] 해당 상품의 판매 이력이 없습니다.");
-            return;
-        }
-
-        System.out.println();
-        System.out.println("====================================");
-        System.out.println("상태 | 상품명 | 판매날짜 | 판매갯수");
-        System.out.println("====================================");
-
-        // 조회 결과 출력
-        for (AdminDto dto : result) {
-            System.out.println(
-                dto.getMstatus() + " | "
-                + dto.getPname() + " | "
-                + dto.getOutDate() + " | "
-                + dto.getOutCount()
-            );
-        }
+        return;
     }
+
+    System.out.println();
+    System.out.println("====================================");
+    System.out.println("상태 | 상품명 | 판매날짜");
+    System.out.println("====================================");
+
+    for (AdminDto dto : result) {
+        System.out.println(
+            dto.getMstatus() + " | "
+            + dto.getPname() + " | "
+            + dto.getOutDate()
+        );
+    }
+
+    // 총 판매 갯수
+    int totalCount = result.size();
+
+    System.out.println("====================================");
+    System.out.println("총 판매 갯수 : " + totalCount + "개");
+    System.out.println("====================================");
+}
 }
